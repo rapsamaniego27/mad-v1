@@ -26,20 +26,20 @@ body{
     display:flex;
     align-items:center;
 
-    &:hover > .sub-menu{
-      visibility:visible;
-      opacity:1;
-    }
-    &:hover > a{
-      color:$violet;
-    }
-
   > a{
       color:$white;
       transition: all 0.3s $anim-primary;
     }
   }
 
+  &:hover>.sub-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover>a {
+    color: $violet;
+  }
 
 }
 
@@ -55,7 +55,6 @@ body{
     font-size:1rem;
     visibility:hidden;
     opacity:0;
-
     a {
       color: $white;
       display: block;
@@ -67,11 +66,9 @@ body{
       }
     }
   }
-
   li{
     width:100%;
   }
-
   
 }
 
