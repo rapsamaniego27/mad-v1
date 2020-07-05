@@ -8,21 +8,73 @@ body{
   overflow-x:hidden;
 }
 
+.menu-nav-container{
+  height:100%;
+}
 
 .top-menu{
   list-style-type:none;
   display:flex;
-
-  li{
+  height:100%;
+  
+  > li{
     margin-left:2rem;
     font-size:1.25rem;
+    position:relative;
+    cursor:pointer;
+    height:100%;
+    display:flex;
+    align-items:center;
 
-    a{
+    &:hover > .sub-menu{
+      visibility:visible;
+      opacity:1;
+    }
+    &:hover > a{
+      color:$violet;
+    }
+
+  > a{
       color:$white;
+      transition: all 0.3s $anim-primary;
     }
   }
 
+
 }
+
+.menu-item-has-children {
+  >.sub-menu {
+    position: absolute;
+    background: $medium-dark;
+    display: block;
+    width:150px;
+    margin-top:13px;
+    top:60px;
+    left:-13px;
+    font-size:1rem;
+    visibility:hidden;
+    opacity:0;
+
+    a {
+      color: $white;
+      display: block;
+      padding: 10px 0 10px 30px;
+
+      &:hover {
+        color: $white;
+        background: $violet;
+      }
+    }
+  }
+
+  li{
+    width:100%;
+  }
+
+  
+}
+
 
 
 .header__wrapper{

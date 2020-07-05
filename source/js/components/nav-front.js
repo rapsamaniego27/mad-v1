@@ -9,3 +9,4 @@ const navigation = new Navigation(navOpen, navOverlay, nav);
 navigation.open();
 navigation.close();
 navigation.sticky();
+navigation.checkIfSubmenu();
