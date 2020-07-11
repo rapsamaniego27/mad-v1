@@ -42,26 +42,35 @@ class Navigation {
 
  checkIfSubmenu() {
    const subMenus = document.querySelectorAll('.menu-item-has-children');
-   /* console.log(navigator); */
+   
+   const action = this.isMobile() ? 'touchstart' : 'click';
+   
+   console.log(action);
    
    subMenus.forEach(submenu => {
       submenu = submenu.children[0];
-
-      submenu.addEventListener('click', (e) => { 
-       this.toggleSubmenu(e);
+ 
+      /* For Computers and Laptops */
+      submenu.addEventListener(action, (e) => { 
+       this.toggleSubmenu(e, action);
+       console.log('triggered');
+       
       });
 
-      submenu.addEventListener('touchstart', (e) => {
+      /* For Mobile and Tablets */
+      /* submenu.addEventListener('touchstart', (e) => {
         this.toggleSubmenu(e);
-      });
+      }); */
    });
   
  }
 
- toggleSubmenu(e){
+ toggleSubmenu(e, action){
     /* Assuming <a> is the clicked Element */
     const clickedElement = e.target;
     const parent = clickedElement.offsetParent;
+
+    alert(action);
 
     e.preventDefault();
 
@@ -69,6 +78,18 @@ class Navigation {
       const ul = clickedElement.nextElementSibling;
       ul.classList.toggle('sub-menu--show');
     }
+ }
+
+ isMobile(){
+   if (navigator.userAgent.match(/Android/i) ||
+     navigator.userAgent.match(/webOS/i) ||
+     navigator.userAgent.match(/iPhone/i) ||
+     navigator.userAgent.match(/iPad/i) ||
+     navigator.userAgent.match(/iPod/i) ||
+     navigator.userAgent.match(/BlackBerry/i) ||
+     navigator.userAgent.match(/Windows Phone/i))
+
+     return true;
  }
  
 
