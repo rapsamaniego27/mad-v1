@@ -44,17 +44,19 @@ class Navigation {
    const subMenus = document.querySelectorAll('.menu-item-has-children');
   
    subMenus.forEach(submenu => {
-      submenu = submenu.children[0];
-
+     /* submenu = submenu.children[0]; */
+     
       submenu.addEventListener('click', (e) => {
         e.preventDefault();
         
         /* Assuming <a> is the clicked Element */
         const clickedElement = e.target;
-        const parent = clickedElement.offsetParent;
+        /* const parent = clickedElement.offsetParent; */
+        console.log(clickedElement);
+        
 
-        if (parent.classList.contains('menu-item-has-children')) {
-          const ul = submenu.nextElementSibling;
+        if (clickedElement.classList.contains('menu-item-has-children')) {
+          const ul = clickedElement.lastElementChild;
           ul.classList.toggle('sub-menu--show');
         }
 

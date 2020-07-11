@@ -31,9 +31,9 @@ header{
       opacity: 1;
     }
 
-    /* &:hover>a {
+    &:hover>a {
       color: $violet;
-    } */
+    }
 
   > a{
       color:$white;
@@ -67,10 +67,10 @@ header{
       display: block;
       padding: 10px 0 10px 30px;
 
-     /*  &:hover {
+      &:hover {
         color: $white;
         background: $violet;
-      } */
+      }
     }
   }
   li{
