@@ -46,7 +46,8 @@ class Navigation {
    subMenus.forEach(submenu => {
       submenu = submenu.children[0];
 
-      submenu.addEventListener('click', (e) => {
+
+      submenu.addEventListener('ontouchstart', (e) => {
         
         /* Assuming <a> is the clicked Element */
         const clickedElement = e.target;
@@ -56,7 +57,7 @@ class Navigation {
 
         if (parent.classList.contains('menu-item-has-children')) {
           const ul = submenu.nextElementSibling;
-          ul.classList.add('sub-menu--show');
+          ul.classList.toggle('sub-menu--show');
         }
 
 
