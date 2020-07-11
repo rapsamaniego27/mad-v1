@@ -47,7 +47,7 @@ class Navigation {
       submenu = submenu.children[0];
 
 
-      submenu.addEventListener('ontouchstart', (e) => {
+      submenu.addEventListener('touchstart', (e) => {
         
         /* Assuming <a> is the clicked Element */
         const clickedElement = e.target;
