@@ -47,17 +47,16 @@ class Navigation {
       submenu = submenu.children[0];
 
       submenu.addEventListener('click', (e) => {
-        e.preventDefault();
         
         /* Assuming <a> is the clicked Element */
         const clickedElement = e.target;
-        console.log(clickedElement);
-        
         const parent = clickedElement.offsetParent;
+        
+        e.preventDefault();
 
         if (parent.classList.contains('menu-item-has-children')) {
           const ul = submenu.nextElementSibling;
-          ul.classList.toggle('sub-menu--show');
+          ul.classList.add('sub-menu--show');
         }
 
 
