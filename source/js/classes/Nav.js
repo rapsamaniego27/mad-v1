@@ -1,3 +1,9 @@
+/* Notes:
+  <a> should always be the one clickable having a full height and width
+
+  always use max-height to transition height
+*/
+
 class Navigation {
  constructor(openTrigger, overlay, menu) {
    this.openTrigger = openTrigger;
@@ -37,11 +43,22 @@ class Navigation {
    const subMenus = document.querySelectorAll('.menu-item-has-children');
   
    subMenus.forEach(submenu => {
-     submenu.addEventListener('click', (e)=> {
-       e.preventDefault();
-       const ul = submenu.lastElementChild;
-       ul.classList.toggle('sub-menu--show');
-     });
+      submenu = submenu.children[0];
+
+      submenu.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        /* Assuming <a> is the clicked Element */
+        const clickedElement = e.target;
+        const parent = clickedElement.offsetParent;
+
+        if (parent.classList.contains('menu-item-has-children')) {
+          const ul = submenu.nextElementSibling;
+          ul.classList.toggle('sub-menu--show');
+        }
+
+
+      });
    });
   
  }
