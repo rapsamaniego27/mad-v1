@@ -40,27 +40,23 @@ class Navigation {
    });
  }
 
+ /* Check if Mobile to see what event listener to use */
  checkIfSubmenu() {
    const subMenus = document.querySelectorAll('.menu-item-has-children');
    
+   /* Use touchstart event for Mobile,
+      otherwise, use click event
+   */
    const action = this.isMobile() ? 'touchstart' : 'click';
-   
-   console.log(action);
    
    subMenus.forEach(submenu => {
       submenu = submenu.children[0];
- 
-      /* For Computers and Laptops */
+
+      /* Trigger submenu action here */
       submenu.addEventListener(action, (e) => { 
-       this.toggleSubmenu(e, action);
-       console.log('triggered');
-       
+       this.toggleSubmenu(e);    
       });
 
-      /* For Mobile and Tablets */
-      /* submenu.addEventListener('touchstart', (e) => {
-        this.toggleSubmenu(e);
-      }); */
    });
   
  }
@@ -69,8 +65,6 @@ class Navigation {
     /* Assuming <a> is the clicked Element */
     const clickedElement = e.target;
     const parent = clickedElement.offsetParent;
-
-    alert(action);
 
     e.preventDefault();
 
