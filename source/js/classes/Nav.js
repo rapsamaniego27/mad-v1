@@ -42,29 +42,35 @@ class Navigation {
 
  checkIfSubmenu() {
    const subMenus = document.querySelectorAll('.menu-item-has-children');
-  
+   /* console.log(navigator); */
+   
    subMenus.forEach(submenu => {
       submenu = submenu.children[0];
 
+      submenu.addEventListener('click', (e) => { 
+       this.toggleSubmenu(e);
+      });
 
       submenu.addEventListener('touchstart', (e) => {
-        
-        /* Assuming <a> is the clicked Element */
-        const clickedElement = e.target;
-        const parent = clickedElement.offsetParent;
-        
-        e.preventDefault();
-
-        if (parent.classList.contains('menu-item-has-children')) {
-          const ul = submenu.nextElementSibling;
-          ul.classList.toggle('sub-menu--show');
-        }
-
-
+        this.toggleSubmenu(e);
       });
    });
   
  }
+
+ toggleSubmenu(e){
+    /* Assuming <a> is the clicked Element */
+    const clickedElement = e.target;
+    const parent = clickedElement.offsetParent;
+
+    e.preventDefault();
+
+    if (parent.classList.contains('menu-item-has-children')) {
+      const ul = clickedElement.nextElementSibling;
+      ul.classList.toggle('sub-menu--show');
+    }
+ }
+ 
 
 }
 
