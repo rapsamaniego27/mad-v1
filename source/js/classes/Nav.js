@@ -18,7 +18,7 @@ class Navigation {
   this.openTrigger.addEventListener('click', (e)=> {
     this.menu.classList.add('menu--show');
     this.overlay.classList.add('menu-overlay--show');
-    
+    this.body.style.overflowY = 'hidden';
   });
  }
 
@@ -27,6 +27,7 @@ class Navigation {
     if(e.target.classList.contains('menu-overlay')){
       this.menu.classList.remove('menu--show');
       this.overlay.classList.remove('menu-overlay--show');
+      this.body.style.overflowY = 'auto';
     }
     
   });

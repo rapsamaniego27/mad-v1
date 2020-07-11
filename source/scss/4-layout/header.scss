@@ -4,8 +4,8 @@ header{
   height:100px;
 }
 
-body{
-  overflow-x:hidden;
+#main{
+  overflow:hidden !important;
 }
 
 .menu-nav-container{
