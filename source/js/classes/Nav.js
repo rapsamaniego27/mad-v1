@@ -52,7 +52,7 @@ class Navigation {
         /* Assuming <a> is the clicked Element */
         const clickedElement = e.target;
         /* const parent = clickedElement.offsetParent; */
-        console.log(clickedElement);
+         alert(clickedElement.outerHTML);
         
 
         if (clickedElement.classList.contains('menu-item-has-children')) {
