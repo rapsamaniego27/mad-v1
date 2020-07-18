@@ -1,8 +1,4 @@
 @media #{$device-sm}{
-
-.header__wrapper{
-  padding: 0 2rem;
-}
  .burgers{
   display:block !important;
  }
@@ -109,3 +105,14 @@
 
 }
 
+
+@media #{$device-md}{
+  .header__wrapper {
+    padding: 0 2rem;
+  }
+
+  .header__logo-img{
+    width: 17vw;
+    min-width: 100px;
+  }
+}

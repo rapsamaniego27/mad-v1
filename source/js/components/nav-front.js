@@ -1,12 +1,16 @@
 const navOpen = document.querySelector('#navOpen');
 const navOverlay = document.querySelector('#navOverlay');
 const nav = document.querySelector('.menu-nav-container');
-
+const subMenus = document.querySelectorAll('.menu-item-has-children');
 
 //Instantiate
-const navigation = new Navigation(navOpen, navOverlay, nav);
+const navigation = new Navigation({
+ nav: nav,
+ openTrigger: navOpen,
+ closeTrigger: navOverlay,
+ overlay: navOverlay,
+ subMenus: subMenus
+});
+
 //Display output
-navigation.open();
-navigation.close();
-navigation.sticky();
-navigation.checkIfSubmenu();
+

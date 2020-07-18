@@ -5,54 +5,68 @@
 */
 
 class Navigation {
- constructor(openTrigger, overlay, menu) {
+ constructor({nav, openTrigger, closeTrigger, overlay, subMenus}) {
+   this.nav = nav;
    this.openTrigger = openTrigger;
    this.overlay = overlay;
-   this.menu = menu;
+   this.closeTrigger = closeTrigger;
+   this.subMenus = subMenus
    this.header = document.querySelector('header');
    this.body = document.querySelector('body');
+
+   this.open();
+   this.close();
+   this.checkIfSubmenu();
  }
 
  // Properties
  open(){
   this.openTrigger.addEventListener('click', (e)=> {
-    this.menu.classList.add('menu--show');
+    this.nav.classList.add('menu--show');
     this.overlay.classList.add('menu-overlay--show');
     this.body.style.overflowY = 'hidden';
-  });
+  }, false);
  }
 
  close(){
-  this.overlay.addEventListener('click', (e) => {
+  this.closeTrigger.addEventListener('click', (e) => {
     if(e.target.classList.contains('menu-overlay')){
-      this.menu.classList.remove('menu--show');
-      this.overlay.classList.remove('menu-overlay--show');
+      this.nav.classList.remove('menu--show');
+      this.closeTrigger.classList.remove('menu-overlay--show');
       this.body.style.overflowY = 'auto';
     }
     
   });
  }
 
- sticky(){
+ stick(){
    window.addEventListener('scroll', () => {
      let fromTop = window.scrollY;
-     const TRIGGER_HEIGHT = 20;
+     let screenWidth = document.body.clientWidth;
+     const TRIGGER_HEIGHT = 30;
+
+    console.table([TRIGGER_HEIGHT, fromTop]);
+
+     if (fromTop >= TRIGGER_HEIGHT) {
+      this.header.classList.add('header--sticky');
+     }else{
+       this.header.classList.remove('header--sticky');
+     }
+
    });
  }
 
  /* Check if Mobile to see what event listener to use */
  checkIfSubmenu() {
-   const subMenus = document.querySelectorAll('.menu-item-has-children');
-   
    /* Use touchstart event for Mobile,
       otherwise, use click event
    */
    const action = this.isMobile() ? 'touchstart' : 'click';
    
-   subMenus.forEach(submenu => {
+   this.subMenus.forEach(submenu => {
       submenu = submenu.children[0];
 
-      /* Trigger submenu action here */
+      /* attach submenu action here */
       submenu.addEventListener(action, (e) => { 
        this.toggleSubmenu(e);    
       });
@@ -85,7 +99,7 @@ class Navigation {
 
      return true;
  }
- 
+
 
 }
 
