@@ -13,13 +13,15 @@ class Menuet {
    this.subMenus = subMenus
    this.header = document.querySelector('header');
    this.body = document.querySelector('body');
-
+   
+   //Automatic runs these functions
    this.open();
    this.close();
    this.checkIfSubmenu();
  }
 
  // Properties
+ 
  open(){
   this.openTrigger.addEventListener('click', (e)=> {
     this.nav.classList.add('menu--show');
@@ -63,15 +65,22 @@ class Menuet {
    */
    const action = this.isMobile() ? 'touchstart' : 'click';
    
-   this.subMenus.forEach(submenu => {
-      submenu = submenu.children[0];
+   /* Checks if theres a submenu */
+   if (this.subMenus.length) {
+     this.subMenus.forEach(submenu => {
+       submenu = submenu.children[0];
 
-      /* attach submenu action here */
-      submenu.addEventListener(action, (e) => { 
-       this.toggleSubmenu(e);    
-      });
+       /* attach submenu action here */
+       submenu.addEventListener(action, (e) => {
+         this.toggleSubmenu(e);
+       });
 
-   });
+     });
+
+     console.log('Theres Submenus');
+   } else {
+     console.warn('No Submenus');
+   }
   
  }
 
@@ -88,6 +97,7 @@ class Menuet {
     }
  }
 
+ /* Checks if device is mobile */
  isMobile(){
    if (navigator.userAgent.match(/Android/i) ||
      navigator.userAgent.match(/webOS/i) ||

@@ -6,7 +6,7 @@ This is my own **boilerplate** in making Front End Projects. I'm currently using
 
 ## Installation
 ```
-npm run install
+npm install
 ```
 
 ## Running the Command
@@ -20,7 +20,13 @@ This boilerplate default setup uses the id `#wrapper` to wrap the `#main` which 
 ```HTML
 <div id="main">
   <div id="wrapper">
-    <!-- Content Goes Here -->
+    <header>
+      <!--Navigaiton menu goes here  -->
+    </header>
+
+    <div class="content">
+      <!--Dynamic Content goes here  -->
+    </div>
   </div>
 
   <footer>
@@ -31,6 +37,9 @@ This boilerplate default setup uses the id `#wrapper` to wrap the `#main` which 
 
 I'm using flex to have a sticky footer at the bottom. 
 Making `#wrapper` as the flex container, `#main` to have a flex 1 and `footer` to shrink.
+
+If you're going to put a `navigation menu` make sure put it inside the wrapper followed by the `dynamic content`.
+
 If you want to make some edits, you may find this in `4-layout/default-structure.scss`.
 
 
