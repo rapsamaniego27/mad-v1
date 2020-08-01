@@ -8,11 +8,11 @@
   right:0px;
   height:100vh;
   top:0;
-  background:$dark;
+  background:var(--dark);
   width:80%;
   transform: translateX(100%);
   z-index:5000;
-  transition: all 0.3s $anim-primary;
+  transition: all 0.3s var(--anim-primary);
   margin:0 -2rem;
   
   .top-menu{
@@ -28,7 +28,7 @@
     font-size:1rem;
 
     &:not(:last-of-type){
-      border-bottom: 2px solid $white;
+      border-bottom: 2px solid var(--white);
     }
 
     /* &:hover>.sub-menu {

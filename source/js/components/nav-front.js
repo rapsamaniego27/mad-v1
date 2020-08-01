@@ -4,7 +4,7 @@ const nav = document.querySelector('.menu-nav-container');
 const subMenus = document.querySelectorAll('.menu-item-has-children');
 
 //Instantiate
-const navigation = new Navigation({
+const menuet = new Menuet({
  nav: nav,
  openTrigger: navOpen,
  closeTrigger: navOverlay,

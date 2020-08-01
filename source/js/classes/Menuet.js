@@ -4,7 +4,7 @@
   always use max-height to transition height
 */
 
-class Navigation {
+class Menuet {
  constructor({nav, openTrigger, closeTrigger, overlay, subMenus}) {
    this.nav = nav;
    this.openTrigger = openTrigger;

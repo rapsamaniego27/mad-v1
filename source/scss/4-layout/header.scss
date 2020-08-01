@@ -1,5 +1,5 @@
 header{
-  background:$dark;
+  background:var(--dark);
   box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
   height:100px;
   width:100vw;
@@ -42,12 +42,12 @@ header{
     }
 
     &:hover>a {
-      color: $violet;
+      color: var(--violet);
     }
 
   > a{
-      color:$white;
-      transition: all 0.3s $anim-primary;
+      color:var(--white);
+      transition: all 0.3s var(--anim-primary);
     }
   }
 
@@ -62,7 +62,7 @@ header{
 
   >.sub-menu {
     position: absolute;
-    background: $medium-dark;
+    background: var(--medium-dark);
     display: block;
     width:150px;
     margin-top:13px;
@@ -74,13 +74,13 @@ header{
 
 
     a {
-      color: $white;
+      color: var(--white);
       display: block;
       padding: 10px 0 10px 30px;
 
       &:hover {
-        color: $white;
-        background: $violet;
+        color: var(--white);
+        background: var(--violet);
       }
     }
   }
