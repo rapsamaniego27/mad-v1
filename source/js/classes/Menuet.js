@@ -61,7 +61,6 @@ class Menuet {
       */
       const TRIGGER_HEIGHT = screenWidth > 800 ? 200 : 40;
 
-
       if (fromTop >= TRIGGER_HEIGHT) {
         this.header.classList.add('header--sticky');
       } else {
