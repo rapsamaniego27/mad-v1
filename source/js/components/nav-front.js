@@ -12,5 +12,5 @@ const menuet = new Menuet({
  subMenus: subMenus
 });
 
-//Display output
 
+//Display output

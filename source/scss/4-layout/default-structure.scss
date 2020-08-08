@@ -1,23 +1,25 @@
-#wrapper{
-  display:flex;
+#wrapper {
+  display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-x: hidden;
 }
 
-#main{
+#main {
   flex: 1 0 auto;
 }
 
 /* We added padding-top vh values so we can 
    adjust everytime the header is in a fixed height
 */
-.content{
-  padding-top:10vh !important;
-  @media #{$device-md}{
-    padding-top:5vh !important;
+.content {
+  padding-top: 10vh !important;
+
+  @media #{$device-md} {
+    padding-top: 5vh !important;
   }
 }
 
-footer{
+footer {
   flex-shrink: 0;
 }
