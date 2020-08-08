@@ -35,7 +35,7 @@ class Menuet {
     this.openTrigger.addEventListener('click', (e) => {
       this.nav.classList.add('menu--show');
       this.overlay.classList.add('menu-overlay--show');
-      this.body.style.overflowY = 'hidden';
+      this.wrapper.style.overflowY = 'hidden';
     }, false);
   }
 
@@ -44,7 +44,7 @@ class Menuet {
       if (e.target.classList.contains('menu-overlay')) {
         this.nav.classList.remove('menu--show');
         this.closeTrigger.classList.remove('menu-overlay--show');
-        this.body.style.overflowY = 'auto';
+        this.wrapper.style.overflowY = 'auto';
       }
 
     });
