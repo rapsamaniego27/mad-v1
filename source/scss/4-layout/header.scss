@@ -6,9 +6,9 @@ header {
   width: 100vw;
   z-index: 500;
   position: relative;
-  top: -20px;
-  transform: translateY(20px);
-  transition: top 0.8s ease-out;
+  top: -10px;
+  transform: translateY(10px);
+  transition: top 0.3s ease-out;
 
   /* Responsiveness of nav */
   @media #{$device-md} {

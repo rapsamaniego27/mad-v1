@@ -12,16 +12,21 @@ class Menuet {
     overlay,
     subMenus
   }) {
+    /* Arguments */
     this.nav = nav;
     this.openTrigger = openTrigger;
     this.overlay = overlay;
     this.closeTrigger = closeTrigger;
     this.subMenus = subMenus
+
+    /* Parents */
     this.header = document.querySelector('header');
     this.body = document.querySelector('body');
+    this.header = document.querySelector('.header');
     this.wrapper = document.querySelector('#wrapper');
+    this.main = document.querySelector('#main');
 
-    //Automatic runs these functions
+    //Automatic runs
     this.open();
     this.close();
     this.checkIfSubmenu();
@@ -55,16 +60,21 @@ class Menuet {
     this.wrapper.addEventListener('scroll', () => {
       let fromTop = this.wrapper.scrollTop;
       let screenWidth = document.body.clientWidth;
+      const headerHeight = this.header.clientHeight;
 
       /* Detects if screen width is mobile or not
          then it declares a height trigger when scrolled.
       */
-      const TRIGGER_HEIGHT = screenWidth > 800 ? 5 : 1;
+      const TRIGGER_HEIGHT = screenWidth > 800 ? 30 : 5;
 
+      /* Adds fixed head and a dynamic top 
+         padding for main content */
       if (fromTop >= TRIGGER_HEIGHT) {
         this.header.classList.add('header--sticky');
+        this.main.style.paddingTop = `${headerHeight}px`;
       } else {
         this.header.classList.remove('header--sticky');
+        this.main.style.paddingTop = `0`;
       }
 
     });
@@ -96,7 +106,7 @@ class Menuet {
 
   }
 
-  toggleSubmenu(e, action) {
+  toggleSubmenu(e) {
     /* Assuming <a> is the clicked Element */
     const clickedElement = e.target;
     const parent = clickedElement.offsetParent;
