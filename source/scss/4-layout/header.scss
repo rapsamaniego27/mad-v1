@@ -6,17 +6,17 @@ header {
   width: 100vw;
   z-index: 500;
   position: relative;
-  top: -10px;
-  transform: translateY(10px);
-  transition: top 0.3s ease-out;
+  top: -20px;
+  transform: translateY(20px);
+  transition: top 0.8s ease-out;
 
   /* Responsiveness of nav */
   @media #{$device-md} {
-    height: 70px;
+    height: 60px;
   }
 
   @media #{$device-sm} {
-    height: 60px;
+    height: 46px;
     padding: 0.25rem 0;
   }
 }
@@ -107,7 +107,7 @@ header {
   .burgers {
     display: none;
     cursor: pointer;
-    margin-top: 0.33rem;
+    margin-top: 1rem;
   }
 
 }
@@ -126,5 +126,5 @@ header {
 
 /* Base size of Logo */
 .header__logo-img {
-  width: 200px;
+  width: 175px;
 }

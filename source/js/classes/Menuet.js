@@ -59,7 +59,7 @@ class Menuet {
       /* Detects if screen width is mobile or not
          then it declares a height trigger when scrolled.
       */
-      const TRIGGER_HEIGHT = screenWidth > 800 ? 30 : 15;
+      const TRIGGER_HEIGHT = screenWidth > 800 ? 5 : 1;
 
       if (fromTop >= TRIGGER_HEIGHT) {
         this.header.classList.add('header--sticky');
